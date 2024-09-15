@@ -39,6 +39,15 @@ ul {
 }
 body {
     background-color: #181A21;
+    overflow-x: hidden;
+    top: 0px !important; 
+
+}
+.goog-te-gadget img{
+    display:none !important;
+}
+body > .skiptranslate {
+    display: none;
 }
 button {
     background: transparent;

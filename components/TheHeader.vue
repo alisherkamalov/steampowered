@@ -1,20 +1,16 @@
 <template>
     <div class="container">
         <ul>
-            <li class="logo li"><a href="https://store.steampowered.com/?snr=1_60_4__global-header"><img src="../public/logo.svg" alt="" class="logo"></a></li>
+            <li class="logo li"><a href="https://store.steampowered.com/?snr=1_60_4__global-header"><img
+                        src="../public/logo.svg" alt="" class="logo"></a></li>
             <div class="content-pc">
-                <div class="cont-store"
-                @mouseover="openStore"
-                    @mouseout="closeStore">
-                    <li class="store li"><a class="store-a" href="https://store.steampowered.com/?snr=1_60_4__global-header">магазин</a></li>
-                    <div class="store-popup"
-                    :style="{
-                        opacity:storeOpacity,
-                        pointerEvents:storePointer
-                    }"
-                    @mouseover="openStore"
-                    @mouseout="closeStore"
-                    >
+                <div class="cont-store" @mouseover="openStore" @mouseout="closeStore">
+                    <li class="store li"><a class="store-a"
+                            href="https://store.steampowered.com/?snr=1_60_4__global-header">магазин</a></li>
+                    <div class="store-popup" :style="{
+                        opacity: storeOpacity,
+                        pointerEvents: storePointer
+                    }" @mouseover="openStore" @mouseout="closeStore">
                         <ul class="s-popup ul">
                             <a class="a-i-p-s" href="https://store.steampowered.com/?snr=1_60_4__global-header">
                                 <li class="item-popup-s">Главная</li>
@@ -25,7 +21,8 @@
                             <a class="a-i-p-s" href="">
                                 <li class="item-popup-s">Список желаемого</li>
                             </a>
-                            <a class="a-i-p-s" href="https://store.steampowered.com/points/shop/?snr=1_60_4__global-header">
+                            <a class="a-i-p-s"
+                                href="https://store.steampowered.com/points/shop/?snr=1_60_4__global-header">
                                 <li class="item-popup-s">Предметы за очки</li>
                             </a>
                             <a class="a-i-p-s" href="https://store.steampowered.com/news/?snr=1_60_4__global-header">
@@ -37,19 +34,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="cont-comm"
-                @mouseover="openComm"
-                    @mouseout="closeComm"
-                >
+                <div class="cont-comm" @mouseover="openComm" @mouseout="closeComm">
                     <li class="community li"><a class="comm-a" href="https://steamcommunity.com/">сообщество</a></li>
-                    <div class="comm-popup"
-                    :style="{
-                        opacity:commOpacity,
-                        pointerEvents:commPointer
-                    }"
-                    @mouseover="openComm"
-                    @mouseout="closeComm"
-                    >
+                    <div class="comm-popup" :style="{
+                        opacity: commOpacity,
+                        pointerEvents: commPointer
+                    }" @mouseover="openComm" @mouseout="closeComm">
                         <ul class="s-popup ul">
                             <a class="a-i-p-s" href="https://steamcommunity.com/">
                                 <li class="item-popup-s">Главная</li>
@@ -66,21 +56,38 @@
                             <a class="a-i-p-s" href="https://steamcommunity.com/?subsection=broadcasts">
                                 <li class="item-popup-s">Трансляции</li>
                             </a>
-                            
+
                         </ul>
                     </div>
                 </div>
-                <li class="info li"><a class="info-a" href="https://store.steampowered.com/about/?snr=1_60_4__global-header">информация</a></li>
+                <li class="info li"><a class="info-a"
+                        href="https://store.steampowered.com/about/?snr=1_60_4__global-header">информация</a></li>
                 <li class="help li"><a class="help-a" href="https://help.steampowered.com/ru/">поддержка</a></li>
                 <li class="right li">
                     <a href="https://store.steampowered.com/about/?snr=1_60_4__global-header">
                         <button class="dwn-btn"><img src="../public/dwn.png" alt="" class="dwn-img">Установить
                             Steam</button>
                     </a>
-                    
-                    <span class="login li">войти</span>
+
+                    <a href="" class="login li">войти</a>
                     <span class="sumbol">|</span>
-                    <span class="lang li">язык <img src="../public/padd.png" alt="" class="pad-img"></span>
+                    <div class="cont-lang lang li">
+                        <span class="lang li" @click="isLang">язык <img src="../public/padd.png" alt="" class="pad-img"></span>
+                        <div class="lang-popup"
+                        :style="{
+                            opacity:langOpacity,
+                            pointerEvents:langPointer
+                        }"
+                        @mouseout="closeLang"
+                        @mouseover="openLang"
+                        >
+                            <div class="l-p-item" v-for="(lang,index) in allLanguages" :key="index">{{ lang.name }}</div>
+                            <a href="https://www.valvesoftware.com/en/contact?contact-person=Translation%20Team%20Feedback" class="l-p-item">
+                                Сообщить о проблеме с переводом
+                            </a>
+                        </div>
+                    </div>
+                    
                 </li>
             </div>
 
@@ -90,10 +97,118 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+const allLanguages = [
+    {
+        name: '简体中文 (упрощенный китайский)'
+    },
+    {
+        name: '繁體中文 (традиционный китайский)'
+    },
+    {
+        name: '日本語 (японский)'
+    },
+    {
+        name: '한국어 (корейский)'
+    },
+    {
+        name: 'ไทย (тайский)'
+    },
+    {
+        name: 'Български (болгарский)'
+    },
+    {
+        name: 'Čeština (чешский)'
+    },
+    {
+        name: 'Dansk (датский)'
+    },
+    {
+        name: 'Deutsch (немецкий)'
+    },
+    {
+        name: 'English (английский)'
+    },
+    {
+        name: 'Español - España (испанский)'
+    },
+    {
+        name: 'Español - Latinoamérica (латиноам. испанский)'
+    },
+    {
+        name: 'Ελληνικά (греческий)'
+    },
+    {
+        name: 'Français (французский)'
+    },
+    {
+        name: 'Italiano (итальянский)'
+    },
+    {
+        name: 'Bahasa Indonesia (индонезийский)'
+    },
+    {
+        name: 'Magyar (венгерский)'
+    },
+    {
+        name: 'Nederlands (нидерландский)'
+    },
+    {
+        name: 'Norsk (норвежский)'
+    },
+    {
+        name: 'Polski (польский)'
+    },
+    {
+        name: 'Português (португальский)'
+    },
+    {
+        name: 'Português-Brasil (бразильский португальский)'
+    },
+    {
+        name: 'Română (румынский)'
+    },
+    {
+        name: 'Suomi (финский)'
+    },
+    {
+        name: 'Svenska (шведский)'
+    },
+    {
+        name: 'Türkçe (турецкий)'
+    },
+    {
+        name: 'Tiếng Việt (вьетнамский)'
+    },
+    {
+        name: 'Українська (украинский)'
+    },
+]
 const storeOpacity = ref(0);
+const langOpacity = ref(0);
+const langPointer = ref('none');
 const storePointer = ref('none');
+const isOpenLang = ref(false);
 const commOpacity = ref(0);
 const commPointer = ref('none');
+const isLang = () => {
+    isOpenLang.value = !isOpenLang.value
+    if (isOpenLang.value === false) {
+        langOpacity.value = 0
+        langPointer.value = 'none'
+    }
+    else {
+        langOpacity.value = 1
+        langPointer.value = 'visible'
+    }
+}
+const openLang = () => {
+    langOpacity.value = 1
+    langPointer.value = 'visible'
+}
+const closeLang = () => {
+    langOpacity.value = 0
+    langPointer.value = 'none'
+}
 const openStore = () => {
     storeOpacity.value = 1
     storePointer.value = 'visible'
@@ -112,20 +227,79 @@ const closeComm = () => {
 }
 </script>
 <style scoped>
+.l-p-item {
+    padding: 5px 12px;
+    color: #dcdedf;
+    text-transform: none;
+    font-family: Motiva Sans, Arial, Helvectica, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.l-p-item:hover {
+    background-color:#dcdedf;
+    color: #3D4450;
+}
+.cont-lang {
+    position: absolute;
+    z-index: 199;
+    right: -55px;
+    display: flex;
+    width: auto;
+    height: 0;
+    flex-direction: column;
+    align-items: end;
+}
+.lang-popup {
+    border: 1px solid #3D4450;
+    position: relative;
+    background-color: #3D4450;
+    box-shadow: 0 0 12px #000000;
+    top: 2.5px;
+    min-width: 285px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:2.6px;
+    scale: 1.005;
+    height: auto;
+    padding-bottom: 1px;
+    left: -9.5px;
+    transition: all 0.2s ease;
+}
 .comm-a {
     color: #dcdedf;
+    transition: all 0.1s ease;
 }
+.comm-a:hover {
+    color: white;
+}
+
 .info-a {
     color: #dcdedf;
+    transition: all 0.1s ease;
+}
+.info-a:hover {
+    color: white;
 }
 .help-a {
     color: #dcdedf;
+    transition: all 0.1s ease;
+}
+.help-a:hover {
+    color: white;
 }
 .store-a {
     color: #1a9fff;
     font-weight: 500;
     height: 18px;
 }
+
 .item-popup-s {
     text-decoration: none;
     text-transform: none;
@@ -138,10 +312,12 @@ const closeComm = () => {
     cursor: pointer;
     padding-bottom: 7px;
 }
+
 .a-i-p-s {
     color: #dcdedf;
     width: 100%;
 }
+
 .item-popup-s:hover {
     background-color: #dcdedf;
     color: #3D4450;
@@ -150,6 +326,7 @@ const closeComm = () => {
 .item-popup-s:hover .a-i-p-s {
     color: #3D4450;
 }
+
 .store-popup {
     position: absolute;
     z-index: 1500;
@@ -165,6 +342,7 @@ const closeComm = () => {
     box-shadow: 3px 3px 5px -3px #000;
     text-align: left;
 }
+
 .comm-popup {
     position: absolute;
     z-index: 1500;
@@ -180,18 +358,22 @@ const closeComm = () => {
     box-shadow: 3px 3px 5px -3px #000;
     text-align: left;
 }
+
 .s-popup {
     flex-direction: column;
     left: 0;
     gap: 0;
     align-items: start;
 }
+
 .cont-store {
     position: relative;
 }
+
 .cont-comm {
     position: relative;
 }
+
 .container {
     width: 100%;
     height: 104px;
@@ -200,17 +382,20 @@ const closeComm = () => {
     align-items: center;
     justify-content: center;
 }
+
 .pad-img {
     position: relative;
     top: 2px;
     left: -4px;
 }
+
 .logo {
     width: 176px;
     margin-top: 2px;
     margin-right: 36px;
     object-fit: contain;
 }
+
 .content-pc {
     width: auto;
     height: auto;
@@ -247,6 +432,7 @@ const closeComm = () => {
     transition: all 0.2s ease;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
 }
+
 .dwn-btn:hover {
     background-color: #699114;
     color: white;
@@ -272,7 +458,7 @@ ul {
     height: 100%;
     align-items: center;
     position: relative;
-    left: 20px;
+    left: -5px;
 }
 
 .right {
@@ -290,6 +476,11 @@ ul {
     font-size: 11px;
     margin-top: 6px;
     font-weight: normal;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+.login:hover {
+    color: white;
 }
 
 .lang {
@@ -297,10 +488,14 @@ ul {
     color: #b8b6b4;
     text-transform: none;
     font-size: 11px;
-    margin-top: 4px;
+    margin-top: 2px;
     font-weight: normal;
+    transition: all 0.1s ease;
+    cursor: pointer;
 }
-
+.lang:hover {
+    color: white;
+}
 .sumbol {
     padding-right: 12px;
     padding-left: 5px;

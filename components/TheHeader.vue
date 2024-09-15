@@ -81,7 +81,7 @@
                         @mouseout="closeLang"
                         @mouseover="openLang"
                         >
-                            <div class="l-p-item" v-for="(lang,index) in allLanguages" :key="index">{{ lang.name }}</div>
+                            <div class="l-p-item" v-for="(lang,index) in allLanguages" :key="index"  :data-google-lang="lang.code">{{ lang.name }}</div>
                             <a href="https://www.valvesoftware.com/en/contact?contact-person=Translation%20Team%20Feedback" class="l-p-item">
                                 Сообщить о проблеме с переводом
                             </a>
@@ -99,90 +99,118 @@
 import { ref } from 'vue';
 const allLanguages = [
     {
-        name: '简体中文 (упрощенный китайский)'
+        name: '简体中文 (упрощенный китайский)',
+        code: 'zh-CN'
     },
     {
-        name: '繁體中文 (традиционный китайский)'
+        name: '繁體中文 (традиционный китайский)',
+        code: 'zh-TW'
     },
     {
-        name: '日本語 (японский)'
+        name: '日本語 (японский)',
+        code: 'ja'
     },
     {
-        name: '한국어 (корейский)'
+        name: '한국어 (корейский)',
+        code: 'ko'
     },
     {
-        name: 'ไทย (тайский)'
+        name: 'ไทย (тайский)',
+        code: 'th'
     },
     {
-        name: 'Български (болгарский)'
+        name: 'Български (болгарский)',
+        code: 'bg'
     },
     {
-        name: 'Čeština (чешский)'
+        name: 'Čeština (чешский)',
+        code: 'cs'
     },
     {
-        name: 'Dansk (датский)'
+        name: 'Dansk (датский)',
+        code: 'da'
     },
     {
-        name: 'Deutsch (немецкий)'
+        name: 'Deutsch (немецкий)',
+        code: 'de'
     },
     {
-        name: 'English (английский)'
+        name: 'English (английский)',
+        code: 'en'
     },
     {
-        name: 'Español - España (испанский)'
+        name: 'Español - España (испанский)',
+        code: 'es'
     },
     {
-        name: 'Español - Latinoamérica (латиноам. испанский)'
+        name: 'Español - Latinoamérica (латиноам. испанский)',
+        code: 'es-419'
     },
     {
-        name: 'Ελληνικά (греческий)'
+        name: 'Ελληνικά (греческий)',
+        code: 'el'
     },
     {
-        name: 'Français (французский)'
+        name: 'Français (французский)',
+        code: 'fr'
     },
     {
-        name: 'Italiano (итальянский)'
+        name: 'Italiano (итальянский)',
+        code: 'it'
     },
     {
-        name: 'Bahasa Indonesia (индонезийский)'
+        name: 'Bahasa Indonesia (индонезийский)',
+        code: 'id'
     },
     {
-        name: 'Magyar (венгерский)'
+        name: 'Magyar (венгерский)',
+        code: 'hu'
     },
     {
-        name: 'Nederlands (нидерландский)'
+        name: 'Nederlands (нидерландский)',
+        code: 'nl'
     },
     {
-        name: 'Norsk (норвежский)'
+        name: 'Norsk (норвежский)',
+        code: 'no'
     },
     {
-        name: 'Polski (польский)'
+        name: 'Polski (польский)',
+        code: 'pl'
     },
     {
-        name: 'Português (португальский)'
+        name: 'Português (португальский)',
+        code: 'pt'
     },
     {
-        name: 'Português-Brasil (бразильский португальский)'
+        name: 'Português-Brasil (бразильский португальский)',
+        code: 'pt-BR'
     },
     {
-        name: 'Română (румынский)'
+        name: 'Română (румынский)',
+        code: 'ro'
     },
     {
-        name: 'Suomi (финский)'
+        name: 'Suomi (финский)',
+        code: 'fi'
     },
     {
-        name: 'Svenska (шведский)'
+        name: 'Svenska (шведский)',
+        code: 'sv'
     },
     {
-        name: 'Türkçe (турецкий)'
+        name: 'Türkçe (турецкий)',
+        code: 'tr'
     },
     {
-        name: 'Tiếng Việt (вьетнамский)'
+        name: 'Tiếng Việt (вьетнамский)',
+        code: 'vi'
     },
     {
-        name: 'Українська (украинский)'
+        name: 'Українська (украинский)',
+        code: 'uk'
     },
-]
+];
 const storeOpacity = ref(0);
 const langOpacity = ref(0);
 const langPointer = ref('none');

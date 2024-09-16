@@ -81,7 +81,7 @@
                         @mouseout="closeLang"
                         @mouseover="openLang"
                         >
-                            <div class="l-p-item" v-for="(lang,index) in allLanguages" :key="index"  :data-google-lang="lang.code">{{ lang.name }}</div>
+                            <div class="l-p-item" v-for="(lang,index) in allLanguages" :key="index" @click="changeLanguage(lang.code)" :data-google-lang="lang.code">{{ lang.name }}</div>
                             <a href="https://www.valvesoftware.com/en/contact?contact-person=Translation%20Team%20Feedback" class="l-p-item">
                                 Сообщить о проблеме с переводом
                             </a>
@@ -97,6 +97,12 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+const changeLanguage = (langCode) => {
+    const url = new URL(window.location);
+    url.searchParams.set('l', langCode);
+    window.history.replaceState(null, '', url.toString());
+}
+
 const allLanguages = [
     {
         name: '简体中文 (упрощенный китайский)',

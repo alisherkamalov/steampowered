@@ -86,14 +86,16 @@
                                 Сообщить о проблеме с переводом
                             </a>
                         </div>
-                    </div>
-                    
+                    </div>                    
                 </li>
             </div>
-
-
         </ul>
     </div>
+    <div class="container-mob">
+    <button class="btn-menu"><img src="https://store.akamai.steamstatic.com/public/shared/images/responsive/header_menu_hamburger.png" alt="" class="menu-img"></button>
+        <img src="../public/mob-logo.png" alt="" class="logo-mob">
+    </div>
+    
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -143,6 +145,10 @@ const allLanguages = [
     {
         name: 'English (английский)',
         code: 'en'
+    },
+    {
+        name: 'Russia (русский)',
+        code: 'ru'
     },
     {
         name: 'Español - España (испанский)',
@@ -261,6 +267,53 @@ const closeComm = () => {
 }
 </script>
 <style scoped>
+.cont-menu {
+    width: auto;
+    height: auto;
+    position: absolute;
+    z-index: 2130;
+    top: 0;
+    left: 0;
+}
+.info {
+    position: relative;
+    top: 14px;
+}
+.help {
+    position: relative;
+    top: 14px;
+}
+.menu-img {
+    width: 35.67px;
+    object-fit: contain;
+}
+.btn-menu {
+    position: absolute;
+    left: 8px;
+    top: 9px;
+    border: 0;
+    background-color: transparent;
+}
+.logo-mob {
+    width: 156.63px;
+    object-fit: contain;
+}
+.container-mob {
+    background: #171a21;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    z-index: 1999;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+}
 .l-p-item {
     padding: 5px 12px;
     color: #dcdedf;
@@ -356,7 +409,6 @@ const closeComm = () => {
     background-color: #dcdedf;
     color: #3D4450;
 }
-
 .item-popup-s:hover .a-i-p-s {
     color: #3D4450;
 }
@@ -402,10 +454,12 @@ const closeComm = () => {
 
 .cont-store {
     position: relative;
+    top: 14px;
 }
 
 .cont-comm {
     position: relative;
+    top: 14px;
 }
 
 .container {
@@ -425,7 +479,7 @@ const closeComm = () => {
 
 .logo {
     width: 176px;
-    margin-top: 2px;
+    margin-top: 4px;
     margin-right: 36px;
     object-fit: contain;
 }
@@ -444,7 +498,8 @@ const closeComm = () => {
     position: relative;
     top: -1px;
     left: -1.5px;
-    margin-right: 8.5px;
+    margin-left: 1px;
+    margin-right: 9px;
 }
 
 .dwn-btn {
@@ -456,7 +511,8 @@ const closeComm = () => {
     text-shadow: none;
     border: 0;
     position: relative;
-    left: -1px;
+    left: -2px;
+    top: -2px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -483,7 +539,7 @@ const closeComm = () => {
 .store {
     color: #1a9fff;
     font-weight: 500;
-    height: 18px;
+    height: 20px;
     border-bottom: 3px solid #1a9fff;
 }
 
@@ -500,7 +556,7 @@ ul {
     margin-left: 22px;
     position: relative;
     display: flex;
-    top: -39px;
+    top: -20px;
 }
 
 .login {
@@ -508,7 +564,7 @@ ul {
     color: #b8b6b4;
     text-transform: none;
     font-size: 11px;
-    margin-top: 6px;
+    margin-top: 2px;
     font-weight: normal;
     transition: all 0.1s ease;
     cursor: pointer;
@@ -522,7 +578,7 @@ ul {
     color: #b8b6b4;
     text-transform: none;
     font-size: 11px;
-    margin-top: 2px;
+    margin-top: 0.5px;
     font-weight: normal;
     transition: all 0.1s ease;
     cursor: pointer;
@@ -537,9 +593,25 @@ ul {
     text-transform: none;
     font-size: 11px;
     position: relative;
-    top: -1px;
+    top: -5px;
     right: 0px;
     margin-top: 6px;
     font-weight: normal;
+}
+@media (max-width:975px) {
+    .container-mob {
+        display: flex;
+    }
+    .container {
+        display: none;
+    }
+}
+@media (min-width:976px) {
+    .container-mob {
+        display: none;
+    }
+    .container {
+        display: flex;
+    }
 }
 </style>

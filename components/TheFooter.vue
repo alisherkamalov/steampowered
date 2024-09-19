@@ -270,6 +270,16 @@ onMounted(() => {
     height: 26px;
     object-fit: contain;
 }
+@media(max-width:975px) {
+    .container {
+        display: none;
+    }
+}
+@media(min-width:976px) {
+    .container {
+        display: flex;
+    }
+}
 @media(min-width:1100px) {
     .bottom-info {
         top: -7px;

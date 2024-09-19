@@ -91,11 +91,24 @@
             </div>
         </ul>
     </div>
+    <div class="black-shadow"
+    :style="{
+        opacity:blackOpacity,
+        pointerEvents:blackPointer
+    }"
+    @click="openAndCloseMenu"
+    ></div>
     <div class="container-mob">
-    <button class="btn-menu"><img src="https://store.akamai.steamstatic.com/public/shared/images/responsive/header_menu_hamburger.png" alt="" class="menu-img"></button>
-        <img src="../public/mob-logo.png" alt="" class="logo-mob">
+    <button class="btn-menu" @click="openAndCloseMenu"><img src="https://store.akamai.steamstatic.com/public/shared/images/responsive/header_menu_hamburger.png" alt="" class="menu-img"></button>
+        <a href="https://store.steampowered.com/"><img src="../public/mob-logo.png" alt="" class="logo-mob"></a>
     </div>
-    
+    <div class="cont-menu"
+    :style="{
+        translate:menuTranslate
+    }"
+    >
+        <TheMenu/>
+    </div>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -104,7 +117,28 @@ const changeLanguage = (langCode) => {
     url.searchParams.set('l', langCode);
     window.history.replaceState(null, '', url.toString());
 }
-
+const isMenu = ref(false);
+const menuTranslate = ref('-280px 0px');
+const blackPointer = ref('none');
+const blackOpacity = ref(0);
+const openAndCloseMenu = () => {
+    isMenu.value = !isMenu.value
+    if (isMenu.value === false) {
+        menuTranslate.value = '-280px 0px';
+        blackOpacity.value = 0
+        blackPointer.value = 'none';
+        document.body.style.overflow = 'auto'; 
+        document.body.style.overflowX = 'hidden'; 
+        
+    }
+    else {
+        menuTranslate.value = '-0px 0px';
+        blackOpacity.value = 1
+        blackPointer.value = 'visible';
+        document.body.style.overflow = 'hidden'; 
+        document.body.style.overflowX = 'hidden'; 
+    }
+}
 const allLanguages = [
     {
         name: '简体中文 (упрощенный китайский)',
@@ -265,14 +299,25 @@ const closeComm = () => {
     commOpacity.value = 0
     commPointer.value = 'none'
 }
+onMounted(() => {
+    document.body.style.overflowX = 'hidden'; 
+})
 </script>
 <style scoped>
+.black-shadow {
+    width: 100%;
+    height: 100svh;
+    z-index: 2129;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+}
 .cont-menu {
     width: auto;
     height: auto;
     position: absolute;
     z-index: 2130;
     top: 0;
+    transition: all 0.5s ease;
     left: 0;
 }
 .info {
@@ -297,6 +342,8 @@ const closeComm = () => {
 .logo-mob {
     width: 156.63px;
     object-fit: contain;
+    position: relative;
+    top: 4px;
 }
 .container-mob {
     background: #171a21;
@@ -347,15 +394,15 @@ const closeComm = () => {
     position: relative;
     background-color: #3D4450;
     box-shadow: 0 0 12px #000000;
-    top: 2.5px;
-    min-width: 285px;
+    top: 1.5px;
+    max-width: 286px;
     width: 100%;
     display: flex;
+    height: 775.33px;
     flex-direction: column;
     gap:2.6px;
     scale: 1.005;
-    height: auto;
-    padding-bottom: 1px;
+    padding-bottom: 3px;
     left: -9.5px;
     transition: all 0.2s ease;
 }
@@ -463,6 +510,7 @@ const closeComm = () => {
 }
 
 .container {
+    max-width: 940px;
     width: 100%;
     height: 104px;
     background-color: #171d25;
@@ -479,7 +527,7 @@ const closeComm = () => {
 
 .logo {
     width: 176px;
-    margin-top: 4px;
+    margin-top: 3px;
     margin-right: 36px;
     object-fit: contain;
 }
@@ -490,8 +538,8 @@ const closeComm = () => {
     display: flex;
     gap: 14px;
     position: relative;
-    top: 5px;
-    left: -20px;
+    top: -12px;
+    left: -20.5px;
 }
 
 .dwn-img {
@@ -539,7 +587,7 @@ const closeComm = () => {
 .store {
     color: #1a9fff;
     font-weight: 500;
-    height: 20px;
+    height: 21px;
     border-bottom: 3px solid #1a9fff;
 }
 
@@ -554,6 +602,7 @@ ul {
 .right {
     margin-right: 16px;
     margin-left: 22px;
+    left: 1px;
     position: relative;
     display: flex;
     top: -20px;
@@ -578,7 +627,7 @@ ul {
     color: #b8b6b4;
     text-transform: none;
     font-size: 11px;
-    margin-top: 0.5px;
+    margin-top: 1px;
     font-weight: normal;
     transition: all 0.1s ease;
     cursor: pointer;
@@ -605,6 +654,9 @@ ul {
     .container {
         display: none;
     }
+    .cont-menu {
+        display: flex;
+    }
 }
 @media (min-width:976px) {
     .container-mob {
@@ -612,6 +664,19 @@ ul {
     }
     .container {
         display: flex;
+    }
+    .cont-menu {
+        display: none;
+    }
+}
+@media(min-width:2800px) {
+    .logo {
+        position: relative;
+        top: 1px;
+    }
+    .right {
+        position: relative;
+        top: -17px;
     }
 }
 </style>

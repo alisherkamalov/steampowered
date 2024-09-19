@@ -6,26 +6,26 @@
                 <div class="left-log">
                     <div class="cont-acc">
                         <span class="text-acc">Войти, используя имя аккаунта</span>
-                        <input type="text" class="login-input">
+                        <input type="text" class="login-input one">
                     </div>
                     <div class="cont-pass">
                         <span class="text-pass">пароль</span>
-                        <input type="text" class="login-input">
+                        <input type="text" class="login-input2">
                     </div>
                     <div class="cont-remem">
-                        <div class="checkbox" @click="isCheckbox"
-                        :style="{
+                        <div class="checkbox" @click="isCheckbox" :style="{
                             border: svgBorder,
                             top: checkboxX,
                             left: checkboxY
                         }">
-                            <svg class="svg-checkbox" 
-                            :style="{
+                            <svg class="svg-checkbox" :style="{
                                 display: svgDisplay,
-                                
-                            }"
-                            version="1.1" id="base" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 256 256" stroke-width="35" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><polyline fill="none" points="49.5,147.75 95,210.75 206.5,45.25 "></polyline>
-                            
+
+                            }" version="1.1" id="base" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14px"
+                                height="14px" viewBox="0 0 256 256" stroke-width="35" stroke="#fff"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                                <polyline fill="none" points="49.5,147.75 95,210.75 206.5,45.25 "></polyline>
+
                             </svg>
                         </div>
                         <span class="text-remem">Запомнить меня</span>
@@ -35,8 +35,9 @@
                             Войти
                         </button>
                     </div>
-                    <a class="cont-help" href="https://help.steampowered.com/wizard/HelpWithLogin?redir=https%3A%2F%2Fstore.steampowered.com%2Flogin%2F%3Fsnr%3D1_4_4__more-content-login">
-                            Помогите, я не могу войти в аккаунт
+                    <a class="cont-help"
+                        href="https://help.steampowered.com/wizard/HelpWithLogin?redir=https%3A%2F%2Fstore.steampowered.com%2Flogin%2F%3Fsnr%3D1_4_4__more-content-login">
+                        Помогите, я не могу войти в аккаунт
                     </a>
                 </div>
                 <div class="right-log">
@@ -45,7 +46,8 @@
                         <img src="../public/qr.jpeg" alt="" class="qr-img">
                     </div>
                     <div class="cont-app">
-                        Используйте <a class="url-app" href="https://store.steampowered.com/mobile">мобильное приложение Steam</a>, чтобы войти с помощью QR-кода
+                        Используйте <a class="url-app" href="https://store.steampowered.com/mobile">мобильное приложение
+                            Steam</a>, чтобы войти с помощью QR-кода
                     </div>
                 </div>
             </div>
@@ -65,7 +67,7 @@ const isCheckbox = () => {
         svgDisplay.value = 'none'
     }
     else {
-        svgDisplay.value = 'flex' 
+        svgDisplay.value = 'flex'
     }
     svgBorder.value = '1px solid #06BFFF'
     checkboxX.value = '-1px'
@@ -73,6 +75,10 @@ const isCheckbox = () => {
 }
 </script>
 <style scoped>
+.login-input.one {
+    position: relative;
+    top: -1px;
+}
 .cont-help {
     width: 100%;
     height: auto;
@@ -82,17 +88,20 @@ const isCheckbox = () => {
     text-decoration: underline;
     cursor: pointer;
     position: relative;
-    top: 44px;
+    top: 42px;
 }
+
 .url-app {
     color: #afafaf;
     font-size: 12px;
     text-decoration: underline;
     cursor: pointer;
 }
+
 .url-app:hover {
     color: rgb(199, 199, 199);
 }
+
 .cont-app {
     margin-top: 6px;
     text-align: center;
@@ -103,12 +112,14 @@ const isCheckbox = () => {
     line-height: 17px;
     font-weight: normal;
 }
+
 .qr-img {
     position: relative;
     top: -2px;
     left: -2px;
     background-repeat: no-repeat;
 }
+
 .qr-code {
     position: relative;
     width: calc(200px - 2.5em);
@@ -118,6 +129,7 @@ const isCheckbox = () => {
     border-width: 1.25em;
     border-radius: .625em;
 }
+
 .right-log {
     width: 200px;
     display: flex;
@@ -126,16 +138,18 @@ const isCheckbox = () => {
     color: #1999ff;
     font-weight: 500;
     font-size: 12px;
-    gap: 3px;
+    gap: 2px;
     text-transform: uppercase;
     letter-spacing: .02em;
     user-select: none;
     margin-top: 11px;
     margin-left: 40px;
 }
+
 .cont-help:hover {
     color: rgb(199, 199, 199);
 }
+
 .checkbox {
     width: 14px;
     height: 14px;
@@ -145,12 +159,14 @@ const isCheckbox = () => {
     cursor: pointer;
     position: absolute;
 }
+
 .checkbox:hover {
     background-color: #3a3d44;
 }
+
 .container {
     width: 100%;
-    height: 813.33px;
+    height: 655px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -158,6 +174,7 @@ const isCheckbox = () => {
     left: 8px;
     background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top no-repeat, #181A21;
 }
+
 .content-login {
     max-width: 813.63px;
     width: 100%;
@@ -171,21 +188,27 @@ const isCheckbox = () => {
     color: #E9E9E9;
     font-family: "Motiva Sans", Sans-serif;
 }
+
 .left-log {
     max-width: 510px;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
+
 .content-log {
     background-color: #181a21;
     border-radius: 4px;
-    padding: 24px 32px;
-    height: 287px;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-top: 23px;
+    padding-bottom: 24px;
     position: relative;
+    top: -2px;
     min-width: 636px;
     display: flex;
 }
+
 .login-text {
     color: #fff;
     font-size: 28px;
@@ -193,6 +216,7 @@ const isCheckbox = () => {
     position: relative;
     left: 16px;
 }
+
 .text-acc {
     color: #1999ff;
     font-weight: 500;
@@ -201,6 +225,7 @@ const isCheckbox = () => {
     letter-spacing: .02em;
     user-select: none;
 }
+
 .cont-acc {
     width: auto;
     height: auto;
@@ -209,6 +234,7 @@ const isCheckbox = () => {
     flex-direction: column;
     margin-top: 11px;
 }
+
 .text-pass {
     color: #AFAFAF;
     font-weight: 500;
@@ -218,14 +244,16 @@ const isCheckbox = () => {
     user-select: none;
     font-weight: normal;
 }
+
 .cont-pass {
     width: auto;
     height: auto;
     display: flex;
     gap: 3px;
     flex-direction: column;
-    margin-top: 14px;
+    margin-top: 11px;
 }
+
 .login-input {
     border-radius: 2px;
     color: #fff;
@@ -236,15 +264,30 @@ const isCheckbox = () => {
     grid-area: input;
     border: 1px solid #32353c;
 }
+.login-input2 {
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px;
+    position: relative;
+    top: -1px;
+    background-color: #32353c;
+    outline: none;
+    font-size: 15px;
+    grid-area: input;
+    border: 1px solid #32353c;
+}
 .login-input:hover {
     background-color: #3a3d44;
     border: 1px solid #3a3d44;
 }
+
 .cont-remem {
     display: flex;
-    margin-top: 12px;
+    margin-top: 11px;
+    margin-bottom: 1px;
     position: relative;
 }
+
 .text-remem {
     color: #afafaf;
     font-size: 12px;
@@ -252,8 +295,9 @@ const isCheckbox = () => {
     padding-left: 6px;
     position: relative;
     left: 20px;
-    margin-top: 4px;
+    top: 2px;
 }
+
 .cont-btn {
     width: auto;
     height: 48px;
@@ -262,9 +306,10 @@ const isCheckbox = () => {
     align-items: center;
     margin-top: 13px;
 }
+
 .btn-login {
     width: 270px;
-    height: 48px;
+    height: 47px;
     background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
     position: relative;
     border-radius: 2px;
@@ -279,7 +324,104 @@ const isCheckbox = () => {
     text-align: center;
     cursor: pointer;
 }
+
 .btn-login:hover {
     background: linear-gradient(90deg, #06BFFF 30%, #2D73FF 100%);
+}
+@media(max-width:700px) {
+    .content-log {
+        flex-wrap: wrap;
+        max-width: none;
+        min-width: auto;
+        width: 100%;
+        display: none;
+    }
+    .content-login {
+        width: 100%;
+        max-width: none;
+        display: flex;
+        align-items: center;
+        top: 82px;
+    }
+    .login-text {
+        left: 0px;
+    }
+    .container {
+        left: 0px;
+        overflow: hidden;
+        height: 0;
+        background-position: 20px 50px;
+        background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg) center top no-repeat, #181A21;
+    }
+}
+@media(max-width:825px) {
+    .content-log {
+        flex-wrap: nowrap;
+    }
+    .container {
+        left: 0;
+        background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top no-repeat, #181A21;
+    }
+}
+@media(min-width:826px) {
+    .content-log {
+        flex-wrap: nowrap;
+    }
+    .container {
+        background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top no-repeat, #181A21;
+    }
+}
+@media(min-width:1300px) {
+    .content-log {
+        padding-bottom: 28px;
+    }
+    .container {
+        height: 659.37px;
+    }
+}
+@media (min-width:1500px) {
+    .content-log {
+        padding-bottom: 28px;
+    }
+    .cont-btn {
+        position: relative;
+        left: 1px;
+    }
+    .login-input.one {
+        width: 100%;
+        max-width: 485.75px;
+    }
+    .login-input2 {
+        width: 100%;
+        max-width: 485.75px;
+    }
+    .container {
+        height: 660px;
+    }
+}
+
+@media (min-width:2800px) {
+    .content-log {
+        padding-bottom: 50px;
+    }
+    .cont-btn {
+        position: relative;
+        left: 1px;
+    }
+    .right-log {
+        position: relative;
+        left: 5px;
+    }
+    .login-input.one {
+        width: 100%;
+        max-width: 485.75px;
+    }
+    .login-input2 {
+        width: 100%;
+        max-width: 485.75px;
+    }
+    .container {
+        height: 680px;
+    }
 }
 </style>

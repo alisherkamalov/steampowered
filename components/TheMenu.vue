@@ -125,7 +125,7 @@ const menuScroll = ref('');
 const storeHeight = ref('0px');
 const chevronComm = ref('0deg');
 const leftInfo = ref('0px');
-const leftPay = ref('-3px');
+const leftPay = ref('3px');
 const dwnTop = ref('0px');
 const commLiTop = ref('-2px');
 const commPopupTop = ref('-3px');
@@ -201,7 +201,7 @@ const openAndCloseComm = () => {
 }
 </script>
 
-<style>
+<style scoped>
 .a-popup {
     color:#ffffff;
     top: 0;

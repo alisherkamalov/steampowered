@@ -354,6 +354,7 @@ onMounted(() => {
     height: 62px;
     z-index: 1999;
     display: flex;
+    width: 100%;
     align-items: center;
     position: relative;
     justify-content: center;

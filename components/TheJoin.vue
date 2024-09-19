@@ -111,4 +111,14 @@
     text-align: center;
     max-width: 300px;
 }
+@media(max-width:975px) {
+    .container {
+        display: none;
+    }
+}
+@media(min-width:976px) {
+    .container {
+        display: flex;
+    }
+}
 </style>

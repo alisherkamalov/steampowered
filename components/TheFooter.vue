@@ -277,7 +277,7 @@ onMounted(() => {
 }
 @media(min-width:976px) {
     .container {
-        display: flex;
+        display: block;
     }
 }
 @media(min-width:1100px) {

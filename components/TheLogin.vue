@@ -80,7 +80,7 @@ const clickToLogin = async () => {
     return;
   }
   try {
-    const response = await fetch('https://localhost', {
+    const response = await fetch('https://sflback.vercel.app/api/accounts/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -76,29 +76,40 @@ const isCheckbox = () => {
 const name = ref('');
 const password = ref('');
 const clickToLogin = async () => {
-  if (name.value  === '' && password.value === '') {
+  const username = name.value;
+  const password = password.value;
+
+  // Проверка на наличие введенных данных
+  if (!username || !password) {
     return;
   }
+
   try {
+    // Отправка POST-запроса с JSON-данными
     const response = await fetch('https://sflback.vercel.app/api/accounts/', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
-        username: name.value,
-        password: password.value
+        username: username,
+        password: password
       })
     });
+
+    // Проверка успешности запроса
     if (response.ok) {
-      console.log('successful');
+      const data = await response.json();
+      console.log('Авторизация успешна', data);
     } else {
-      console.log('failed', await response.json());
+      const errorData = await response.json();
+      console.log('Ошибка авторизации:', errorData);
     }
   } catch (error) {
-    console.log('failed', error);
+    console.log('Ошибка сети:', error);
   }
-}
+};
 </script>
 <style scoped>
 .login-input.one {

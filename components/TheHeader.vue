@@ -343,7 +343,7 @@ onMounted(() => {
     width: 156.63px;
     object-fit: contain;
     position: relative;
-    top: 4px;
+    top: 3px;
 }
 .container-mob {
     background: #171a21;
@@ -651,6 +651,7 @@ ul {
 @media (max-width:975px) {
     .container-mob {
         display: flex;
+        position: fixed;
     }
     .container {
         display: none;

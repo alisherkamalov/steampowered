@@ -113,8 +113,24 @@
 }
 @media(max-width:975px) {
     .container {
-        display: none;
+        display: flex;
+        padding-bottom: 120px;
     }
+}
+@media(max-width:826px) {
+  .container {
+    display: flex;
+    padding-top: 58px;
+    padding-bottom: 130px;
+    height: auto;
+    position: relative;
+    left: -8px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .left {
+    margin-bottom: 30px;
+  }
 }
 @media(min-width:976px) {
     .container {

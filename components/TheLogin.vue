@@ -328,32 +328,7 @@ const isCheckbox = () => {
 .btn-login:hover {
     background: linear-gradient(90deg, #06BFFF 30%, #2D73FF 100%);
 }
-@media(max-width:700px) {
-    .content-log {
-        flex-wrap: wrap;
-        max-width: none;
-        min-width: auto;
-        width: 100%;
-        display: none;
-    }
-    .content-login {
-        width: 100%;
-        max-width: none;
-        display: flex;
-        align-items: center;
-        top: 82px;
-    }
-    .login-text {
-        left: 0px;
-    }
-    .container {
-        left: 0px;
-        overflow: hidden;
-        height: 0;
-        background-position: 20px 50px;
-        background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg) center top no-repeat, #181A21;
-    }
-}
+
 @media(max-width:825px) {
     .content-log {
         flex-wrap: nowrap;
@@ -362,6 +337,105 @@ const isCheckbox = () => {
         left: 0;
         background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top no-repeat, #181A21;
     }
+    .content-login {
+      left: -3px;
+    }
+}
+@media(max-width:700px) {
+  .content-log {
+    flex-wrap: wrap;
+    max-width: none;
+    min-width: auto;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+  }
+  .left-log {
+    left: 3px;
+    width: 64.5%;
+    position: relative;
+  }
+  .right-log {
+    width: 83%;
+    height: 244px;
+    margin-top: 89px;
+    align-items: center;
+    margin-left: 5px;
+  }
+  .cont-help {
+    top: 41px;
+  }
+  .cont-app {
+    width: 100%;
+  }
+  .content-login {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    top: 20px;
+  }
+  .login-text {
+    left: 3px;
+  }
+  .container {
+    overflow: hidden;
+    left: 0;
+    height: 728px;
+    margin-top: 62px;
+    background-position: 20px 50px;
+    background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg) center top no-repeat, #181A21;
+  }
+
+}
+@media(max-width:400px) {
+  .content-log {
+    flex-wrap: wrap;
+    max-width: none;
+    min-width: auto;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+  }
+  .left-log {
+    left: 3px;
+    width: 83%;
+    position: relative;
+  }
+  .right-log {
+    width: 83%;
+    height: 244px;
+    margin-top: 89px;
+    align-items: center;
+    margin-left: 6px;
+  }
+  .cont-help {
+    top: 41px;
+  }
+  .cont-app {
+    width: 100%;
+  }
+  .content-login {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    top: 20px;
+  }
+  .login-text {
+    left: 3px;
+  }
+  .container {
+    overflow: hidden;
+    left: 0;
+    height: 728px;
+    margin-top: 62px;
+    background-position: 20px 50px;
+    background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg) center top no-repeat, #181A21;
+  }
+
 }
 @media(min-width:826px) {
     .content-log {

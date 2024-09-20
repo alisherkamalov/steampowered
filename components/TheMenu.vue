@@ -473,7 +473,7 @@ a {
 }
 ::-webkit-scrollbar-thumb {
     width: 10px;
-    background-color: #434953;
+    background-color: #4E5157;
     border-radius: 10px;
     z-index: 12;
     border: 4px solid #000000;

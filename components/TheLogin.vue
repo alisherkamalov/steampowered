@@ -80,17 +80,24 @@ const clickToLogin = async () => {
     return;
   }
   try {
-    const response = await axios.post('https://localhost', {
-          username: name.value,
-          password: password.value
-        }
-    )
-    console.log('successful');
-  }
-  catch (error) {
+    const response = await fetch('https://localhost', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: name.value,
+        password: password.value
+      })
+    });
+    if (response.ok) {
+      console.log('successful');
+    } else {
+      console.log('failed', await response.json());
+    }
+  } catch (error) {
     console.log('failed', error);
   }
-
 }
 </script>
 <style scoped>

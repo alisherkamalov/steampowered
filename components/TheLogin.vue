@@ -31,7 +31,7 @@
                         <span class="text-remem">Запомнить меня</span>
                     </div>
                     <div class="cont-btn">
-                        <button class="btn-login">
+                        <button class="btn-login" @click="clickToLogin">
                             Войти
                         </button>
                     </div>
@@ -72,6 +72,25 @@ const isCheckbox = () => {
     svgBorder.value = '1px solid #06BFFF'
     checkboxX.value = '-1px'
     checkboxY.value = '-1px'
+}
+const name = ref('');
+const password = ref('');
+const clickToLogin = async () => {
+  if (name.value  === '' && password.value === '') {
+    return;
+  }
+  try {
+    const response = await axios.post('https://localhost', {
+          username: name.value,
+          password: password.value
+        }
+    )
+    console.log('successful');
+  }
+  catch (error) {
+    console.log('failed', error);
+  }
+
 }
 </script>
 <style scoped>

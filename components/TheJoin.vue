@@ -132,6 +132,21 @@
     margin-bottom: 30px;
   }
 }
+@media(max-width:626px) {
+  .container {
+    display: flex;
+    padding-top: 45px;
+    padding-bottom: 130px;
+    height: auto;
+    position: relative;
+    left: -8px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .left {
+    margin-bottom: 30px;
+  }
+}
 @media(min-width:976px) {
     .container {
         display: flex;

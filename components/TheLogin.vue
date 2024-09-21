@@ -6,11 +6,11 @@
                 <div class="left-log">
                     <div class="cont-acc">
                         <span class="text-acc">Войти, используя имя аккаунта</span>
-                        <input type="text" class="login-input one">
+                        <input type="text" class="login-input one" v-model="name">
                     </div>
                     <div class="cont-pass">
                         <span class="text-pass">пароль</span>
-                        <input type="text" class="login-input2">
+                        <input type="text" class="login-input2" v-model="password">
                     </div>
                     <div class="cont-remem">
                         <div class="checkbox" @click="isCheckbox" :style="{
@@ -76,40 +76,35 @@ const isCheckbox = () => {
 const name = ref('');
 const password = ref('');
 const clickToLogin = async () => {
-  const username = name.value;
-  const password = password.value;
-
-  // Проверка на наличие введенных данных
-  if (!username || !password) {
+  // Check if either field is empty
+  if (name.value === '' || password.value === '') {
+    console.log('Username or password cannot be empty');
     return;
   }
 
   try {
-    // Отправка POST-запроса с JSON-данными
-    const response = await fetch('https://sflback.vercel.app/api/accounts/', {
+    const response = await fetch('https://sflback.vercel.app/api/accounts/', { // Add trailing slash
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: username,
-        password: password
+        username: name.value,
+        password: password.value
       })
     });
 
-    // Проверка успешности запроса
     if (response.ok) {
-      const data = await response.json();
-      console.log('Авторизация успешна', data);
+      console.log('Login successful');
     } else {
       const errorData = await response.json();
-      console.log('Ошибка авторизации:', errorData);
+      console.log('Login failed', errorData);
     }
   } catch (error) {
-    console.log('Ошибка сети:', error);
+    console.log('Request failed', error);
   }
-};
+}
+
 </script>
 <style scoped>
 .login-input.one {
@@ -391,6 +386,54 @@ const clickToLogin = async () => {
   .left-log {
     left: 3px;
     width: 64.5%;
+    position: relative;
+  }
+  .right-log {
+    width: 83%;
+    height: 244px;
+    margin-top: 89px;
+    align-items: center;
+    margin-left: 5px;
+  }
+  .cont-help {
+    top: 41px;
+  }
+  .cont-app {
+    width: 100%;
+  }
+  .content-login {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    top: 20px;
+  }
+  .login-text {
+    left: 3px;
+  }
+  .container {
+    overflow: hidden;
+    left: 0;
+    height: 728px;
+    margin-top: 62px;
+    background-position: 20px 50px;
+    background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat, url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg) center top no-repeat, #181A21;
+  }
+
+}
+@media(max-width:600px) {
+  .content-log {
+    flex-wrap: wrap;
+    max-width: none;
+    min-width: auto;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+  }
+  .left-log {
+    left: 3px;
+    width: 87%;
     position: relative;
   }
   .right-log {

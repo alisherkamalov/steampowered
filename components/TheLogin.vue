@@ -89,7 +89,7 @@ const clickToLogin = async () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: name.value,
+        name: name.value,
         password: password.value
       })
     });

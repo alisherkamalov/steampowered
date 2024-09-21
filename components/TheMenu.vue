@@ -209,11 +209,15 @@ const openAndCloseComm = () => {
 .span-store {
     position: relative;
     top: -1px;
+    font-weight: 200;
+    font-family:"Motiva Sans", Sans-serif;
 }
 .span-comm {
     position: relative;
     top: -1px;
     color: #bdbdbd;
+    font-weight: 200;
+    font-family:"Motiva Sans", Sans-serif;
 }
 .ul-popup-c {
     display: flex;
@@ -389,10 +393,23 @@ a {
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 2.5em;
+    font-weight: 200;
+    font-family:"Motiva Sans", Sans-serif;
     text-decoration: none;
     cursor: pointer;
 }
-
+.login-a {
+  font-weight: 200;
+  font-family:"Motiva Sans", Sans-serif;
+}
+.info-a {
+  font-weight: 200;
+  font-family:"Motiva Sans", Sans-serif;
+}
+.help-a {
+  font-weight: 200;
+  font-family:"Motiva Sans", Sans-serif;
+}
 .menu-item {
     border-top: 1px solid #2f3138;
     border-bottom: 1px solid #000000;

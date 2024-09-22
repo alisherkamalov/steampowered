@@ -83,7 +83,7 @@ const clickToLogin = async () => {
   }
 
   try {
-    const response = await fetch('https://sflback.vercel.app/api/accounts/', { // Add trailing slash
+    const response = await fetch('https://97d4-178-91-89-133.ngrok-free.app/api/accounts/', { // Add trailing slash
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

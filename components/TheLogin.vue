@@ -96,6 +96,7 @@ const clickToLogin = async () => {
 
     if (response.ok) {
       console.log('Login successful');
+      window.location.href = 'https://store.steampowered.com/';
     } else {
       const errorData = await response.json();
       console.log('Login failed', errorData);

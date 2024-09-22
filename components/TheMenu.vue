@@ -205,6 +205,8 @@ const openAndCloseComm = () => {
 .a-popup {
     color:#ffffff;
     top: 0;
+    font-weight: 200;
+    font-family:"Motiva Sans", Sans-serif;
 }
 .span-store {
     position: relative;

